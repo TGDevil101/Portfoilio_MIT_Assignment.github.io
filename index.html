@@ -786,7 +786,6 @@
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#achievements">ACHIEVEMENTS</a></li>
     <li><a href="#projects">PROJECTS</a></li>
-    <li><a href="#gallery">GALLERY</a></li>
     <li><a href="#contact">CONTACT</a></li>
   </ul>
 </nav>
@@ -1109,27 +1108,6 @@
   document.querySelectorAll('section').forEach(s => observer.observe(s));
   // Home always visible
   document.getElementById('home').classList.add('visible');
-
-  /* ─── Gallery Lightbox ──────────────────────────────── */
-  const lb     = document.getElementById('lightbox');
-  const lbImg  = document.getElementById('lb-img');
-  const lbClose = document.getElementById('lb-close');
-
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const src = item.getAttribute('data-src');
-      const img = item.querySelector('img');
-      if (src && src !== '') {
-        lbImg.src = src;
-        lb.classList.add('open');
-      } else if (img) {
-        lbImg.src = img.src;
-        lb.classList.add('open');
-      }
-    });
-  });
-  lbClose.addEventListener('click', () => lb.classList.remove('open'));
-  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
 
   /* ─── Glitch flicker on hero name hover ────────────── */
   document.querySelectorAll('.glitch-wrap').forEach(el => {
